@@ -63,6 +63,7 @@ type NewPost = {
 };
 
 export async function createPost(post: NewPost) {
+    await new Promise((res) => setTimeout(res, 1000));
     let md = `---\ntitle: ${post.title}\n---\n\n${post.markdown}`;
     await fs.writeFile(path.join(postsPath, post.slug + ".md"), md, "utf8");
     return getPost(post.slug);

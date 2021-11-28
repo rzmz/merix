@@ -7,7 +7,6 @@ export const loader = () => {
 
 export default function Posts() {
     let posts = useLoaderData<Post[]>();
-    console.log(posts);
     return (
         <div>
             <h1>Posts</h1>
