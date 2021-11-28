@@ -18,6 +18,7 @@ export default function Posts() {
                     </li>
                 ))}
             </ul>
+            <Link to="admin">Admin</Link>
         </div>
     );
 }
