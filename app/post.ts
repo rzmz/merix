@@ -55,3 +55,15 @@ export async function getPosts(): Promise<Post[]> {
         })
     );
 }
+
+type NewPost = {
+    title: string;
+    slug: string;
+    markdown: string;
+};
+
+export async function createPost(post: NewPost) {
+    let md = `---\ntitle: ${post.title}\n---\n\n${post.markdown}`;
+    await fs.writeFile(path.join(postsPath, post.slug + ".md"), md, "utf8");
+    return getPost(post.slug);
+}
